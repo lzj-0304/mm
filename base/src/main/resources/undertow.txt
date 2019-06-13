@@ -1,0 +1,12 @@
+# true 值支持热加载
+ undertow.devMode=true
+ undertow.port=8989
+ undertow.host=127.0.0.1
+ # 绝大部分情况不建议配置 context path
+ # undertow.contextPath=/abc
+ # 静态资源加载
+ undertow.resourcePath =src/main/webapp,classpath:static/
+# session 过期时间，注意单位是秒
+undertow.session.timeout=1800
+# 支持 session 热加载，避免依赖于 session 的登录型项目反复登录，默认值为 true。仅用于 devMode，生产环境无影响
+undertow.session.hotSwap=true
