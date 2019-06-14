@@ -1,5 +1,5 @@
 # config
-jdbcUrl = jdbc:mysql://localhost/lbt_pm?characterEncoding=utf8&useSSL=false
+jdbcUrl = jdbc:mysql://localhost/lg?characterEncoding=utf8&useSSL=false
 &zeroDateTimeBehavior=convertToNull
 user = root
 password = root

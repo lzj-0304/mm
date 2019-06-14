@@ -18,35 +18,35 @@ public abstract class BaseUserRole<M extends BaseUserRole<M>> extends Model<M> i
 	}
 
 	public void setUserId(java.lang.Integer userId) {
-		set("user_id", userId);
+		set("userId", userId);
 	}
 	
 	public java.lang.Integer getUserId() {
-		return getInt("user_id");
+		return getInt("userId");
 	}
 
 	public void setRoleId(java.lang.Integer roleId) {
-		set("role_id", roleId);
+		set("roleId", roleId);
 	}
 	
 	public java.lang.Integer getRoleId() {
-		return getInt("role_id");
+		return getInt("roleId");
 	}
 
 	public void setCreateDate(java.util.Date createDate) {
-		set("create_date", createDate);
+		set("createDate", createDate);
 	}
 	
 	public java.util.Date getCreateDate() {
-		return get("create_date");
+		return get("createDate");
 	}
 
 	public void setUpdateDate(java.util.Date updateDate) {
-		set("update_date", updateDate);
+		set("updateDate", updateDate);
 	}
 	
 	public java.util.Date getUpdateDate() {
-		return get("update_date");
+		return get("updateDate");
 	}
 
 }

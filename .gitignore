@@ -4,3 +4,6 @@
 /base/target/
 /base/base.iml
 /base/.rebel.xml.bak
+/sys/sys.iml
+/sys/target/
+

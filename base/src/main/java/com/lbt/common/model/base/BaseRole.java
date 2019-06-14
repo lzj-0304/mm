@@ -18,49 +18,49 @@ public abstract class BaseRole<M extends BaseRole<M>> extends Model<M> implement
 	}
 
 	public void setRoleName(java.lang.String roleName) {
-		set("role_name", roleName);
+		set("roleName", roleName);
 	}
 	
 	public java.lang.String getRoleName() {
-		return getStr("role_name");
+		return getStr("roleName");
 	}
 
 	/**
 	 * 备注
 	 */
 	public void setRoleRemark(java.lang.String roleRemark) {
-		set("role_remark", roleRemark);
+		set("roleRemark", roleRemark);
 	}
 	
 	/**
 	 * 备注
 	 */
 	public java.lang.String getRoleRemark() {
-		return getStr("role_remark");
+		return getStr("roleRemark");
 	}
 
 	public void setCreateDate(java.util.Date createDate) {
-		set("create_date", createDate);
+		set("createDate", createDate);
 	}
 	
 	public java.util.Date getCreateDate() {
-		return get("create_date");
+		return get("createDate");
 	}
 
 	public void setUpdateDate(java.util.Date updateDate) {
-		set("update_date", updateDate);
+		set("updateDate", updateDate);
 	}
 	
 	public java.util.Date getUpdateDate() {
-		return get("update_date");
+		return get("updateDate");
 	}
 
 	public void setIsValid(java.lang.Integer isValid) {
-		set("is_valid", isValid);
+		set("isValid", isValid);
 	}
 	
 	public java.lang.Integer getIsValid() {
-		return getInt("is_valid");
+		return getInt("isValid");
 	}
 
 }

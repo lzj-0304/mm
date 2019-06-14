@@ -3,6 +3,7 @@ package com.lbt.controller;
 import com.jfinal.core.Controller;
 import com.lbt.common.model.User;
 import com.lbt.dto.UserDto;
+import com.lbt.model.ResultInfo;
 
 public class UserController extends Controller {
 
@@ -23,7 +24,7 @@ public class UserController extends Controller {
 
     public void u02(){
         User user = getBean(User.class);
-        user.setUserName("super_admin");
+        //user.setUserName("super_admin");
         System.out.println(user.save());
         renderText("添加用户.....");
     }
@@ -82,8 +83,10 @@ public class UserController extends Controller {
 
 
     public void u08(){
-        User user = getBean(User.class);
+        User user = getBean(User.class,"");
         System.out.println(user);
-        renderJson(user);
+        ResultInfo resultInfo =new ResultInfo();
+        resultInfo.setResult(user);
+        renderJson(resultInfo);
     }
 }

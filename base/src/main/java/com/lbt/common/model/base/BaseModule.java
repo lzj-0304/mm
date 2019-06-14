@@ -21,28 +21,28 @@ public abstract class BaseModule<M extends BaseModule<M>> extends Model<M> imple
 	 * 资源名称
 	 */
 	public void setModuleName(java.lang.String moduleName) {
-		set("module_name", moduleName);
+		set("moduleName", moduleName);
 	}
 	
 	/**
 	 * 资源名称
 	 */
 	public java.lang.String getModuleName() {
-		return getStr("module_name");
+		return getStr("moduleName");
 	}
 
 	/**
 	 * 模块样式
 	 */
 	public void setModuleStyle(java.lang.String moduleStyle) {
-		set("module_style", moduleStyle);
+		set("moduleStyle", moduleStyle);
 	}
 	
 	/**
 	 * 模块样式
 	 */
 	public java.lang.String getModuleStyle() {
-		return getStr("module_style");
+		return getStr("moduleStyle");
 	}
 
 	/**
@@ -60,19 +60,19 @@ public abstract class BaseModule<M extends BaseModule<M>> extends Model<M> imple
 	}
 
 	public void setParentId(java.lang.Integer parentId) {
-		set("parent_id", parentId);
+		set("parentId", parentId);
 	}
 	
 	public java.lang.Integer getParentId() {
-		return getInt("parent_id");
+		return getInt("parentId");
 	}
 
 	public void setParentOptValue(java.lang.String parentOptValue) {
-		set("parent_opt_value", parentOptValue);
+		set("parentOptValue", parentOptValue);
 	}
 	
 	public java.lang.String getParentOptValue() {
-		return getStr("parent_opt_value");
+		return getStr("parentOptValue");
 	}
 
 	/**
@@ -93,14 +93,14 @@ public abstract class BaseModule<M extends BaseModule<M>> extends Model<M> imple
 	 * 权限值
 	 */
 	public void setOptValue(java.lang.String optValue) {
-		set("opt_value", optValue);
+		set("optValue", optValue);
 	}
 	
 	/**
 	 * 权限值
 	 */
 	public java.lang.String getOptValue() {
-		return getStr("opt_value");
+		return getStr("optValue");
 	}
 
 	public void setOrders(java.lang.Integer orders) {
@@ -112,27 +112,27 @@ public abstract class BaseModule<M extends BaseModule<M>> extends Model<M> imple
 	}
 
 	public void setIsValid(java.lang.Integer isValid) {
-		set("is_valid", isValid);
+		set("isValid", isValid);
 	}
 	
 	public java.lang.Integer getIsValid() {
-		return getInt("is_valid");
+		return getInt("isValid");
 	}
 
 	public void setCreateDate(java.util.Date createDate) {
-		set("create_date", createDate);
+		set("createDate", createDate);
 	}
 	
 	public java.util.Date getCreateDate() {
-		return get("create_date");
+		return get("createDate");
 	}
 
 	public void setUpdateDate(java.util.Date updateDate) {
-		set("update_date", updateDate);
+		set("updateDate", updateDate);
 	}
 	
 	public java.util.Date getUpdateDate() {
-		return get("update_date");
+		return get("updateDate");
 	}
 
 }

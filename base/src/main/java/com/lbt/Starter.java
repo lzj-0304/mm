@@ -48,7 +48,8 @@ public class Starter extends JFinalConfig {
 
     @Override
     public void configPlugin(Plugins plugins) {
-        DruidPlugin dp =new DruidPlugin("jdbc:mysql://localhost/lbt_pm?characterEncoding=utf8","root","root");
+        DruidPlugin dp =new DruidPlugin("jdbc:mysql://localhost/lg" +
+                "?characterEncoding=utf8","root","root");
         plugins.add(dp);
         ActiveRecordPlugin arp = new ActiveRecordPlugin(dp);
         plugins.add(arp);

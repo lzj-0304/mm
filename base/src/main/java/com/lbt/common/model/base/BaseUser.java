@@ -18,27 +18,27 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 	}
 
 	public void setUserName(java.lang.String userName) {
-		set("user_name", userName);
+		set("userName", userName);
 	}
 	
 	public java.lang.String getUserName() {
-		return getStr("user_name");
+		return getStr("userName");
 	}
 
 	public void setUserPwd(java.lang.String userPwd) {
-		set("user_pwd", userPwd);
+		set("userPwd", userPwd);
 	}
 	
 	public java.lang.String getUserPwd() {
-		return getStr("user_pwd");
+		return getStr("userPwd");
 	}
 
 	public void setTrueName(java.lang.String trueName) {
-		set("true_name", trueName);
+		set("trueName", trueName);
 	}
 	
 	public java.lang.String getTrueName() {
-		return getStr("true_name");
+		return getStr("trueName");
 	}
 
 	public void setEmail(java.lang.String email) {
@@ -58,27 +58,27 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 	}
 
 	public void setIsValid(java.lang.Integer isValid) {
-		set("is_valid", isValid);
+		set("isValid", isValid);
 	}
 	
 	public java.lang.Integer getIsValid() {
-		return getInt("is_valid");
+		return getInt("isValid");
 	}
 
 	public void setCreateDate(java.util.Date createDate) {
-		set("create_date", createDate);
+		set("createDate", createDate);
 	}
 	
 	public java.util.Date getCreateDate() {
-		return get("create_date");
+		return get("createDate");
 	}
 
 	public void setUpdateDate(java.util.Date updateDate) {
-		set("update_date", updateDate);
+		set("updateDate", updateDate);
 	}
 	
 	public java.util.Date getUpdateDate() {
-		return get("update_date");
+		return get("updateDate");
 	}
 
 }

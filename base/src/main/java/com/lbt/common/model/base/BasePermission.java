@@ -21,44 +21,44 @@ public abstract class BasePermission<M extends BasePermission<M>> extends Model<
 	 * 角色ID
 	 */
 	public void setRoleId(java.lang.Integer roleId) {
-		set("role_id", roleId);
+		set("roleId", roleId);
 	}
 	
 	/**
 	 * 角色ID
 	 */
 	public java.lang.Integer getRoleId() {
-		return getInt("role_id");
+		return getInt("roleId");
 	}
 
 	/**
 	 * 模块ID
 	 */
 	public void setModuleId(java.lang.Integer moduleId) {
-		set("module_id", moduleId);
+		set("moduleId", moduleId);
 	}
 	
 	/**
 	 * 模块ID
 	 */
 	public java.lang.Integer getModuleId() {
-		return getInt("module_id");
+		return getInt("moduleId");
 	}
 
 	public void setCreateDate(java.util.Date createDate) {
-		set("create_date", createDate);
+		set("createDate", createDate);
 	}
 	
 	public java.util.Date getCreateDate() {
-		return get("create_date");
+		return get("createDate");
 	}
 
 	public void setUpdateDate(java.util.Date updateDate) {
-		set("update_date", updateDate);
+		set("updateDate", updateDate);
 	}
 	
 	public java.util.Date getUpdateDate() {
-		return get("update_date");
+		return get("updateDate");
 	}
 
 }
