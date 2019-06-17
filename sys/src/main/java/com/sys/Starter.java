@@ -10,6 +10,7 @@ import com.jfinal.server.undertow.UndertowServer;
 import com.jfinal.template.Engine;
 import com.sys.common.model._MappingKit;
 import com.sys.routes.IndexRoute;
+import com.sys.routes.RoleRoute;
 import com.sys.routes.UserRoute;
 
 public class Starter extends JFinalConfig {
@@ -33,6 +34,7 @@ public class Starter extends JFinalConfig {
     public void configRoute(Routes me) {
         me.add(new IndexRoute());
         me.add(new UserRoute());
+        me.add(new RoleRoute());
     }
 
     @Override

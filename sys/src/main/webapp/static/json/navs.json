@@ -15,7 +15,7 @@
 				{
 					"title": "角色管理",
 					"icon": "&#xe609;",
-					"href": "page/login/login.html",
+					"href": "/role",
 					"spread": false
 				},
 				{
