@@ -1,6 +1,7 @@
 package com.sys;
 
 import com.jfinal.config.*;
+import com.jfinal.ext.interceptor.SessionInViewInterceptor;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
@@ -9,6 +10,7 @@ import com.jfinal.server.undertow.UndertowServer;
 import com.jfinal.template.Engine;
 import com.sys.common.model._MappingKit;
 import com.sys.routes.IndexRoute;
+import com.sys.routes.UserRoute;
 
 public class Starter extends JFinalConfig {
 
@@ -17,14 +19,20 @@ public class Starter extends JFinalConfig {
     }
     @Override
     public void configConstant(Constants me) {
-        me.setDevMode(true);//开发模式
+        //开发模式
+        me.setDevMode(true);
+        // 设置视图类型
         me.setViewType(ViewType.FREE_MARKER);
+        // 加载配置
         PropKit.use("config.properties");
+        // 开启注入功能
+        me.setInjectDependency(true);
     }
 
     @Override
     public void configRoute(Routes me) {
         me.add(new IndexRoute());
+        me.add(new UserRoute());
     }
 
     @Override
@@ -43,7 +51,7 @@ public class Starter extends JFinalConfig {
 
     @Override
     public void configInterceptor(Interceptors me) {
-
+        me.add(new SessionInViewInterceptor(true));
     }
 
     @Override

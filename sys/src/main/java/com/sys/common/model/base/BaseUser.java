@@ -81,4 +81,12 @@ public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implement
 		return get("updateDate");
 	}
 
+	public void setIsDel(java.lang.Integer isDel) {
+		set("isDel", isDel);
+	}
+	
+	public java.lang.Integer getIsDel() {
+		return getInt("isDel");
+	}
+
 }
