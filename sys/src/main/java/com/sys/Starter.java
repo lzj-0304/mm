@@ -9,6 +9,8 @@ import com.jfinal.render.ViewType;
 import com.jfinal.server.undertow.UndertowServer;
 import com.jfinal.template.Engine;
 import com.sys.common.model._MappingKit;
+import com.sys.interceptors.LoginInterceptor;
+import com.sys.interceptors.PermissionInterceptor;
 import com.sys.routes.IndexRoute;
 import com.sys.routes.ModuleRoute;
 import com.sys.routes.RoleRoute;
@@ -57,6 +59,8 @@ public class Starter extends JFinalConfig {
     @Override
     public void configInterceptor(Interceptors me) {
         me.add(new SessionInViewInterceptor(true));
+        me.add(new LoginInterceptor());
+        me.add(new PermissionInterceptor());
     }
 
     @Override

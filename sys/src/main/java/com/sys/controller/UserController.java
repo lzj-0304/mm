@@ -1,10 +1,15 @@
 package com.sys.controller;
 
+import com.jfinal.aop.Before;
+import com.jfinal.aop.Clear;
 import com.jfinal.aop.Inject;
 import com.jfinal.core.Controller;
 import com.sys.common.model.User;
+import com.sys.common.model.annoations.SysPermission;
 import com.sys.constant.SysConstant;
 import com.sys.exceptions.ParamException;
+import com.sys.interceptors.LoginInterceptor;
+import com.sys.interceptors.PermissionInterceptor;
 import com.sys.model.ResultInfo;
 import com.sys.model.UserModel;
 import com.sys.query.UserQuery;
@@ -20,12 +25,15 @@ public class UserController extends Controller {
 
     @Inject
     ModuleService moduleService;
+    @Before({LoginInterceptor.class, PermissionInterceptor.class})
+    @SysPermission(code = "1010")  //用户管理操作码
     public void index(){
         setAttr("ctx",getRequest().getContextPath());
         render("userList.ftl");
     }
 
 
+    @Clear(LoginInterceptor.class)
     public void doLogin(){
         ResultInfo resultInfo=new ResultInfo();
         try {
@@ -35,7 +43,7 @@ public class UserController extends Controller {
             setSessionAttr(SysConstant.USER_INFO,userModel);
             List<String> records= moduleService.queryUserHasModulesByUserId(userModel.getUserId());
             // 查询用户所属角色拥有权限 并放入session
-            setSessionAttr("permissions", records);
+            setSessionAttr(SysConstant.USER_PERMISSIONS, records);
             resultInfo.setResult(userModel);
         } catch (ParamException e) {
             e.printStackTrace();
@@ -49,19 +57,23 @@ public class UserController extends Controller {
         renderJson(resultInfo);
     }
 
-
+    @Clear(LoginInterceptor.class)
     public  void exit(){
         removeSessionAttr(SysConstant.USER_INFO);
+        removeSessionAttr(SysConstant.USER_PERMISSIONS);
         redirect(getRequest().getContextPath()+"/login");
     }
 
 
+    @Before({LoginInterceptor.class,PermissionInterceptor.class})
+    @SysPermission(code = "101010")   // 用户查询
     public void userList(){
         UserQuery userQuery=getBean(UserQuery.class,"");
         System.out.println("-------->"+userQuery);
         renderJson(userService.userList(userQuery));
     }
-
+    @Before({LoginInterceptor.class,PermissionInterceptor.class})
+    @SysPermission(code = "101020")  // 用户预览
     public void userUpdate(){
         set("user",userService.queryUserById(getParaToInt("uid")));
         set("ctx",getRequest().getContextPath());
@@ -70,7 +82,8 @@ public class UserController extends Controller {
 
 
 
-
+    @Before({LoginInterceptor.class,PermissionInterceptor.class})
+    @SysPermission(code = "101030")
     public void saveOrUpdate(){
         ResultInfo resultInfo=new ResultInfo();
         try {
@@ -106,7 +119,8 @@ public class UserController extends Controller {
         }
         renderJson(resultInfo);
     }*/
-
+    @Before({LoginInterceptor.class,PermissionInterceptor.class})
+    @SysPermission(code = "101040")  //用户删除
     public void del(){
         ResultInfo resultInfo=new ResultInfo();
         try {

@@ -11,7 +11,8 @@
 			<div class="layui-main mag0">
 				<a href="#" class="logo">乐购-后台管理</a>
 				<!-- 显示/隐藏菜单 -->
-				<a href="javascript:;" class="seraph hideMenu icon-caidan"></a>
+				<a href="javascript:;" class="seraph hideMenu
+				icon-caidan"></a>
 			    <!-- 顶部右侧菜单 -->
 			    <ul class="layui-nav top_menu">
 					<li class="layui-nav-item" id="userInfo">

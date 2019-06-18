@@ -3,7 +3,6 @@ layui.config({
 	base : "static/js/"
 }).extend({
 	"bodyTab" : "bodyTab"
-	//"formSelects":"formSelects-v4"
 });
 layui.use(['bodyTab','form','element','layer','jquery'],function(){
 	var form = layui.form,

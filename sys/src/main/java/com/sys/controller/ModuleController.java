@@ -1,13 +1,16 @@
 package com.sys.controller;
 
+import com.jfinal.aop.Before;
 import com.jfinal.aop.Inject;
 import com.jfinal.core.Controller;
 import com.jfinal.core.paragetter.Para;
 import com.sys.common.model.Module;
+import com.sys.interceptors.LoginInterceptor;
 import com.sys.service.ModuleService;
 
 import java.util.List;
 
+@Before(LoginInterceptor.class)
 public class ModuleController extends Controller {
 
     @Inject

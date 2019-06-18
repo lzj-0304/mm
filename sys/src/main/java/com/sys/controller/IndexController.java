@@ -1,7 +1,11 @@
 package com.sys.controller;
 
+import com.jfinal.aop.Before;
+import com.jfinal.aop.Clear;
 import com.jfinal.core.Controller;
+import com.sys.interceptors.LoginInterceptor;
 
+@Before(LoginInterceptor.class)
 public class IndexController extends Controller {
 
     /**
@@ -24,6 +28,7 @@ public class IndexController extends Controller {
     /**
      * 登录页
      */
+    @Clear(LoginInterceptor.class)
     public void login(){
         set("ctx",getRequest().getContextPath());
         render("login.ftl");

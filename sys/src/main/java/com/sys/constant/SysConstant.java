@@ -11,5 +11,6 @@ public class SysConstant {
     public static final String OPS_FAILED_MSG="操作失败";
     public static final Integer OPS_FAILED_CODE=300;
     public static final String USER_INFO="userInfo";
+    public static final String USER_PERMISSIONS="permissions";
 
 }
