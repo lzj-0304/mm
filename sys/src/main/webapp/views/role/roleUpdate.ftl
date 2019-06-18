@@ -12,7 +12,7 @@
 			<input type="text" class="layui-input"
 				   lay-verify="required" name="roleName" value="${(role
 			.roleName)!}"
-				   placeholder="请输入用户名">
+				   placeholder="请输入角色名">
 		</div>
 	</div>
 	<div class="layui-form-item layui-row layui-col-xs12">

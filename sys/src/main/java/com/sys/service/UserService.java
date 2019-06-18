@@ -3,6 +3,7 @@ package com.sys.service;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
 import com.sys.common.model.User;
+import com.sys.common.model.UserRole;
 import com.sys.constant.SysConstant;
 import com.sys.model.UserModel;
 import com.sys.query.UserQuery;
@@ -101,6 +102,26 @@ public class UserService {
             AssertUtil.isTrue(!user.save(), SysConstant.OPS_FAILED_MSG);
         }
 
+        // 关联用户角色
+        if(StringUtils.isNotBlank(user.getRoleIds())){
+            // 如果为更新 删除用户原有角色
+            if(null != userId){
+                Db.delete("delete from t_user_role where userId=?",userId);
+            }
+            //重新添加新的角色
+            String[] roleIds = user.getRoleIds().split(",");
+            List<UserRole> userRoles =new ArrayList<UserRole>();
+            for(String roleId:roleIds){
+                UserRole userRole =new UserRole();
+                userRole.setUserId(user.getId());
+                userRole.setRoleId(Integer.parseInt(roleId));
+                userRole.setCreateDate(new Date());
+                userRole.setUpdateDate(new Date());
+                userRoles.add(userRole);
+            }
+            Db.batchSave(userRoles,userRoles.size());
+        }
+
 
     }
     private void checkUserParams(String userName, String trueName, String email, String phone) {
@@ -114,5 +135,7 @@ public class UserService {
     public void del(Integer userId){
         AssertUtil.isTrue(null == userDao.findById(userId),"待删除记录不存在!");
         Db.update("update t_user set isDel=1 where id = ?",userId);
+        // 级联删除用户角色
+        Db.update("delete from t_user_role where userId=?",userId);
     }
 }

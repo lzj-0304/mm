@@ -20,29 +20,29 @@ public abstract class BaseModule<M extends BaseModule<M>> extends Model<M> imple
 	/**
 	 * 资源名称
 	 */
-	public void setModuleName(java.lang.String moduleName) {
-		set("moduleName", moduleName);
+	public void setTitle(java.lang.String title) {
+		set("title", title);
 	}
 	
 	/**
 	 * 资源名称
 	 */
-	public java.lang.String getModuleName() {
-		return getStr("moduleName");
+	public java.lang.String getTitle() {
+		return getStr("title");
 	}
 
 	/**
 	 * 模块样式
 	 */
-	public void setModuleStyle(java.lang.String moduleStyle) {
-		set("moduleStyle", moduleStyle);
+	public void setTitleStyle(java.lang.String titleStyle) {
+		set("titleStyle", titleStyle);
 	}
 	
 	/**
 	 * 模块样式
 	 */
-	public java.lang.String getModuleStyle() {
-		return getStr("moduleStyle");
+	public java.lang.String getTitleStyle() {
+		return getStr("titleStyle");
 	}
 
 	/**

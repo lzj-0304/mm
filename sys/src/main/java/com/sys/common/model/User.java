@@ -7,5 +7,14 @@ import com.sys.common.model.base.BaseUser;
  */
 @SuppressWarnings("serial")
 public class User extends BaseUser<User> {
-	
+
+    private String roleIds;
+
+    public void setRoleIds(String roleIds) {
+        this.roleIds = roleIds;
+    }
+
+    public String getRoleIds() {
+        return roleIds;
+    }
 }

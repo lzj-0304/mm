@@ -8,8 +8,6 @@
 <link rel="icon" href="${ctx}/favicon.ico">
 <link rel="stylesheet" href="${ctx}/static/layui/css/layui.css"
       media="all" />
-<link rel="stylesheet" href="${ctx}/static/css/public.css"
-      media="all" />
 <script type="text/javascript" src="${ctx}/static/layui/layui.js"></script>
 <script type="text/javascript">
     var ctx="${ctx}";

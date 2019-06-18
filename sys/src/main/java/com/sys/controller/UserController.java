@@ -8,12 +8,18 @@ import com.sys.exceptions.ParamException;
 import com.sys.model.ResultInfo;
 import com.sys.model.UserModel;
 import com.sys.query.UserQuery;
+import com.sys.service.ModuleService;
 import com.sys.service.UserService;
+
+import java.util.List;
 
 public class UserController extends Controller {
 
     @Inject
     UserService userService;
+
+    @Inject
+    ModuleService moduleService;
     public void index(){
         setAttr("ctx",getRequest().getContextPath());
         render("userList.ftl");
@@ -27,6 +33,9 @@ public class UserController extends Controller {
             UserModel userModel= userService.doLogin(get("userName"),get(
                     "userPwd"));
             setSessionAttr(SysConstant.USER_INFO,userModel);
+            List<String> records= moduleService.queryUserHasModulesByUserId(userModel.getUserId());
+            // 查询用户所属角色拥有权限 并放入session
+            setSessionAttr("permissions", records);
             resultInfo.setResult(userModel);
         } catch (ParamException e) {
             e.printStackTrace();
@@ -65,7 +74,9 @@ public class UserController extends Controller {
     public void saveOrUpdate(){
         ResultInfo resultInfo=new ResultInfo();
         try {
-           userService.saveOrUpdateUser(getBean(User.class,"")); ;
+            User user = getBean(User.class,"");
+            System.out.println("角色id-->"+user.getRoleIds());
+            userService.saveOrUpdateUser(user);
         } catch (ParamException e) {
             e.printStackTrace();
             resultInfo.setCode(e.getErrorCode());

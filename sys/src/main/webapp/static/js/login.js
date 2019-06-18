@@ -19,14 +19,14 @@ layui.use(['form','layer','jquery'],function(){
         $.ajax({
             type:"post",
             url:ctx+"/user/doLogin",
-            data:{
+            /*data:{
                 userName:"admin",
                 userPwd:"123456"
-            },
-            /*data:{
+            },*/
+            data:{
                 userName:$("#userName").val(),
                 userPwd:$("#userPwd").val()
-            },*/
+            },
             dataType:"json",
             success:function (data) {
                 if(data.code==200){

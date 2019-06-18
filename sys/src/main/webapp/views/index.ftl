@@ -18,9 +18,14 @@
 						<a href="javascript:;"><img
 									src="${ctx}/static/images/face.jpg"
 									class="layui-nav-img userAvatar"
-									width="35" height="35"><cite
-									class="adminName">admin<#--${session
-									["userInfo"].userName}--></cite></a>
+									width="35" height="35">
+							<cite class="adminName">
+								<#if session["userInfo"]??>
+									${session["userInfo"].userName}
+									<#else >
+							   </#if>
+							</cite>
+						</a>
 						<dl class="layui-nav-child">
 							<dd><a href="javascript:;"
 								   data-url="${ctx}/page/user/userInfo.html"><i class="seraph icon-ziliao" data-icon="icon-ziliao"></i><cite>个人资料</cite></a>
@@ -44,8 +49,12 @@
 			<div class="user-photo">
 				<a class="img" title="我的头像" ><img src="${ctx}/static/images/face
 				.jpg" class="userAvatar"></a>
-				<p>你好！<span class="userName">admin<#--${session["userInfo"]
-				.userName}--></span>,
+				<p>你好！<span class="userName">
+						<#if session["userInfo"]??>
+								${session["userInfo"].userName}
+								<#else >
+						</#if>
+					</span>,
 					欢迎登录</p>
 			</div>
 			<!-- 搜索 -->
@@ -60,9 +69,36 @@
 			<div class="navBar layui-side-scroll" id="navBar">
 				<ul class="layui-nav layui-nav-tree">
 					<li class="layui-nav-item layui-this">
-						<a href="javascript:;" data-url="${ctx}/page/main
-						.html"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a>
+						<a href="javascript:;" data-url="${ctx}/page/main.html"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a>
 					</li>
+					<#if session["permissions"]??>
+						<#if session["permissions"]?seq_contains("10")>
+							<li class="layui-nav-item">
+								<a href="javascript:;">系统管理</a>
+									  <#if session["permissions"]?seq_contains("1010")>
+										<dl class="layui-nav-child">
+											<a href="javascript:;" data-url="${ctx}/user">
+												<i class="layui-icon" data-icon=""></i><cite>用户管理</cite>
+											</a>
+										</dl>
+									  </#if>
+								       <#if session["permissions"]?seq_contains("1020")>
+											<dl class="layui-nav-child">
+												<a href="javascript:;" data-url="${ctx}/role">
+													<i class="layui-icon" data-icon=""></i><cite>角色管理</cite>
+												</a>
+											</dl>
+									  </#if>
+									   <#if session["permissions"]?seq_contains("1030")>
+											<dl class="layui-nav-child">
+												<a href="javascript:;" data-url="${ctx}/module">
+													<i class="layui-icon" data-icon=""></i><cite>资源管理</cite>
+												</a>
+											</dl>
+										</#if>
+							</li>
+						</#if>
+					</#if>
 				</ul>
 			</div>
 		</div>
@@ -95,9 +131,7 @@
 		</div>
 	</div>
 
-	<!-- 移动导航 -->
-	<div class="site-tree-mobile"><i class="layui-icon">&#xe602;</i></div>
-	<div class="site-mobile-shade"></div>
+
 
 	<script type="text/javascript" src="${ctx}/static/js/index.js"></script>
 </body>

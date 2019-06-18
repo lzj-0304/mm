@@ -4,6 +4,7 @@ layui.use(['table','layer',"form"],function(){
         table = layui.table,
         form = layui.form;
 
+
     //用户列表展示
     var  tableIns = table.render({
         elem: '#roleList',
@@ -46,6 +47,34 @@ layui.use(['table','layer',"form"],function(){
 
 
 
+    $(".addGrant").click(function () {
+        /**
+         * 获取选中的checkbox id
+         */
+        var checkStatus = table.checkStatus('roleListTable');
+        if(checkStatus.data.length>1||checkStatus.data.length==0){
+            layer.msg("请选择一条角色进行授权!",{icon:5});
+            return;
+        }
+        var roleId=checkStatus.data[0].id;
+        openGrantPage(roleId);
+    });
+
+
+    function openGrantPage(roleId){
+        var url  =  ctx+"/role/roleGrant?roleId="+roleId;
+        layui.layer.open({
+            title : "角色管理-角色授权",
+            type : 2,
+            area:["500px","400px"],
+            maxmin:true,
+            content : url
+        });
+    }
+
+
+
+
     /**
      * 行监听
      */
@@ -82,6 +111,10 @@ layui.use(['table','layer',"form"],function(){
             content : url
         });
     }
+
+
+
+
 
 
 });

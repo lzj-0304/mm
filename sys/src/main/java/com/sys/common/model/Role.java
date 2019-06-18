@@ -7,5 +7,17 @@ import com.sys.common.model.base.BaseRole;
  */
 @SuppressWarnings("serial")
 public class Role extends BaseRole<Role> {
-	
+
+
+    private String name;
+    private Integer value;
+    private String selected="";
+
+    public String getSelected() {
+        return selected;
+    }
+
+    public void setSelected(String selected) {
+        this.selected = selected;
+    }
 }

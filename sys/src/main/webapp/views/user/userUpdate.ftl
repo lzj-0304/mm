@@ -3,6 +3,8 @@
 <head>
 	<title>用户添加</title>
 	<#include "../base.ftl">
+	<link rel="stylesheet" href="${ctx}/static/css/formSelects-v4.css"
+		  media="all" />
 </head>
 <body class="childrenBody">
 <form class="layui-form" style="width:80%;" >
@@ -62,8 +64,7 @@
 		<div class="magb15 layui-col-md4 layui-col-xs12">
 			<label class="layui-form-label">角色</label>
 			<div class="layui-input-block">
-				<select name="roleIds" id="roleIds" class="userStatus"
-						lay-filter="userStatus" >
+				<select name="roleIds"  xm-select="selectId">
 				</select>
 			</div>
 		</div>

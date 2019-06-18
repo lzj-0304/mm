@@ -10,6 +10,7 @@ import com.jfinal.server.undertow.UndertowServer;
 import com.jfinal.template.Engine;
 import com.sys.common.model._MappingKit;
 import com.sys.routes.IndexRoute;
+import com.sys.routes.ModuleRoute;
 import com.sys.routes.RoleRoute;
 import com.sys.routes.UserRoute;
 
@@ -28,6 +29,7 @@ public class Starter extends JFinalConfig {
         PropKit.use("config.properties");
         // 开启注入功能
         me.setInjectDependency(true);
+
     }
 
     @Override
@@ -35,6 +37,7 @@ public class Starter extends JFinalConfig {
         me.add(new IndexRoute());
         me.add(new UserRoute());
         me.add(new RoleRoute());
+        me.add(new ModuleRoute());
     }
 
     @Override

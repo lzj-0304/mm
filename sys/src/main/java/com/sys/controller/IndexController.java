@@ -1,8 +1,6 @@
 package com.sys.controller;
 
 import com.jfinal.core.Controller;
-import com.sys.constant.SysConstant;
-import com.sys.model.UserModel;
 
 public class IndexController extends Controller {
 
@@ -11,7 +9,6 @@ public class IndexController extends Controller {
      */
     public void index(){
         set("ctx",getRequest().getContextPath());
-        System.out.println((UserModel)getSessionAttr(SysConstant.USER_INFO));
         render("index.ftl");
     }
 

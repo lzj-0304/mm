@@ -21,6 +21,10 @@
 				<a class="layui-btn layui-btn-normal addNews_btn"><i
 							class="layui-icon">&#xe608;</i>  添加角色</a>
 			</div>
+			<div class="layui-inline">
+				<a class="layui-btn layui-btn-normal addGrant"><i class="layui-icon
+				">&#xe672;</i>授权</a>
+			</div>
 		</form>
 	</blockquote>
 	<table id="roleList" class="layui-table"  lay-filter="roles"></table>
@@ -30,6 +34,8 @@
 		<a class="layui-btn layui-btn-xs" id="edit" lay-event="edit">编辑</a>
 		<a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
 	</script>
+
+
 </form>
 <script type="text/javascript" src="${ctx}/static/js/role/roleList.js"></script>
 

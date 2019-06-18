@@ -1,7 +1,27 @@
-layui.use(['form','layer'],function(){
-    var form = layui.form
+layui.config({
+    base : "../static/js/"
+}).extend({
+    "formSelects":"formSelects-v4"
+});
+layui.use(['form','layer',"formSelects"],function(){
+    var form = layui.form,
         layer = parent.layer === undefined ? layui.layer : top.layer,
-        $ = layui.jquery;
+        $ = layui.jquery,
+        formSelects = layui.formSelects;
+
+    var userId=$("input[name='id']").val();
+    formSelects.config('selectId',{
+        type:"post",
+        searchUrl:ctx+"/role/allRoles?userId="+userId,
+        keyName: 'roleName',            //自定义返回数据中name的key, 默认 name
+        keyVal: 'id'            //自定义返回数据中value的key, 默认 value
+    },true);
+
+    //server
+    /*formSelects.data('selectId', 'server', {
+        url: ctx+"/role/allRoles"
+    });*/
+//se
 
     form.on("submit(addUser)",function(data){
         var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
